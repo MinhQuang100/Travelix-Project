@@ -9,9 +9,8 @@ const Home = () => {
             <div className="home_slider_background" style={{backgroundImage: "url(images/home_slider.jpg)"}}></div>
             <div className="home_slider_content text-center">
               <div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                <h1>discover</h1>
+                <h1>Travel Around</h1>
                 <h1>the world</h1>
-                
               </div>
             </div>
           </div>

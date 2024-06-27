@@ -10,7 +10,7 @@ const IntroItem = ({ backgroundImage, date, destination, price, rating }) => {
                 <FontAwesomeIcon 
                     key={i} 
                     icon={faStar} 
-                    className={`star p-1 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`} 
+                    className={`star p-1 ${i < rating ? 'filled' : ''}`}
                 />
             );
         }

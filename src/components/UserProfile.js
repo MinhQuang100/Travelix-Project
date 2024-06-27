@@ -56,17 +56,17 @@ const UserProfile = ({ closeProfile }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+      <div className="bg-[#31124b]  p-8 rounded shadow-md w-full max-w-md">
         <button
           onClick={closeProfile}
           className="text-gray-600 hover:text-gray-900 absolute top-4 right-4"
         >
           &times;
         </button>
-        <h2 className="text-2xl font-bold mb-6">User Profile</h2>
+        <h2 className="text-2xl font-bold text-[#fa9e1b] mb-6">User Profile</h2>
         <form onSubmit={onSubmit}>
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Username</label>
+            <label className="block text-[#fa9e1b] mb-2">Username</label>
             <input
               type="text"
               name="username"
@@ -77,7 +77,7 @@ const UserProfile = ({ closeProfile }) => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 mb-2">Email</label>
+            <label className="block text-[#fa9e1b] mb-2">Email</label>
             <input
               type="email"
               name="email"
@@ -89,7 +89,7 @@ const UserProfile = ({ closeProfile }) => {
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="w-full text-white bg-[#8d4fff] py-2 px-4 rounded hover:bg-blue-600"
           >
             Update Profile
           </button>

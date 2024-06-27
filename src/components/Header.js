@@ -1,11 +1,11 @@
-// In Header.js
+//In Header.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
 import { faPinterest, faFacebook, faTwitter, faDribbble, faBehance, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import AuthModal from './AuthModal';
-import UserProfile from './UserProfile'; // Import the new component
+import UserProfile from './UserProfile';
 
 const Header = () => {
   const [searchActive, setSearchActive] = useState(false);
@@ -14,7 +14,7 @@ const Header = () => {
   const [isLogin, setIsLogin] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
-  const [profileOpen, setProfileOpen] = useState(false); // State to manage profile visibility
+  const [profileOpen, setProfileOpen] = useState(false);
 
   const toggleSearch = () => {
     setSearchActive(!searchActive);
@@ -80,7 +80,7 @@ const Header = () => {
   return (
     <header className="header">
       {/* Top Bar */}
-      <div className="top_bar text-white">
+      <div className="top_bar text-white ">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
             <div className="social">
@@ -93,6 +93,7 @@ const Header = () => {
                 <li className="social_list_item"><a href="#" className='text-white'><FontAwesomeIcon icon={faLinkedin} /></a></li>
               </ul>
             </div>
+            {/*User box*/}
             <div className="user_box">
               {isLoggedIn ? (
                 <div className="flex items-center">
@@ -124,7 +125,6 @@ const Header = () => {
                 <li className="main_nav_item"><a href="#" className="text-white">about us</a></li>
                 <li className="main_nav_item"><Link to="/offers">Offers</Link></li>
                 <li className="main_nav_item"><a href="#" className="text-white">news</a></li>
-                <li className="main_nav_item"><a href="#" className="text-white">contact</a></li>
               </ul>
             </div>
             <div className='flex gap-x-8'>
@@ -139,18 +139,29 @@ const Header = () => {
         </div>
       </nav>
       <div className={`menu bg-gray-900 py-8 ${menuActive ? 'active' : ''}`}> {/* Add 'active' class if menuActive is true */}
+        {/* Menu content */}      
         <div className="menu_content flex flex-col items-center justify-center text-center">
-          {/* Menu content */}
-          <div className="menu_close_container">
+          <div className="menu_close_container ">
             <div className="menu_close" onClick={toggleMenu}></div>
           </div>
           <div className="logo menu_logo mb-8"><a href="#"></a></div>
-          <ul>
-            <li className="menu_item"><Link to="/">Home</Link></li>
-            <li className="menu_item"><a href="#" className="text-white">about us</a></li>
-            <li className="menu_item"><Link to="/offers">Offers</Link></li>
-            <li className="menu_item"><a href="#" className="text-white">news</a></li>
-            <li className="menu_item"><a href="#" className="text-white">contact</a></li>
+          {isLoggedIn ? (
+            <div className="flex flex-col gap-y-6 items-center">
+              <div className="menu_item inline-block relative font-[Beyond] text-4xl text-white font-normal">Hello, {username}</div>
+              <div className="menu_item" onClick={toggleMenu}><a href="#" onClick={() => setProfileOpen(true)}>Profile</a></div>
+              <div className="menu_item" onClick={toggleMenu}><a href="#" onClick={handleLogout} >Logout</a></div>
+            </div>
+          ) : (
+            <>
+              <div className="menu_item user_box_link" onClick={toggleMenu}><a href="#" onClick={() => { setIsLogin(true); toggleModal(); }}>login</a></div>
+              <div className="menu_item user_box_link" onClick={toggleMenu}><a href="#" onClick={() => { setIsLogin(false); toggleModal(); }}>register</a></div>
+            </>
+          )}
+          <ul className='mt-12'>
+            <li className="menu_item" onClick={toggleMenu}><Link to="/">Home</Link></li>
+            <li className="menu_item" onClick={toggleMenu}><a href="#" className="text-white">about us</a></li>
+            <li className="menu_item" onClick={toggleMenu}><Link to="/offers">Offers</Link></li>
+            <li className="menu_item" onClick={toggleMenu}><a href="#" className="text-white">news</a></li>
           </ul>
         </div>
       </div>
@@ -158,8 +169,8 @@ const Header = () => {
       {searchActive && (
         <div className="search_container">
           <div className="container">
-            <form className="search_form flex justify-center items-center">
-              <input type="search" className="search_input border" placeholder="Search" required="required" />
+            <form className="flex justify-center items-center">
+              <input type="search" className="search_input mt-6" placeholder="Search" required="required" />
               <button type="submit" className="search_button mt-0">Submit</button>
             </form>
           </div>

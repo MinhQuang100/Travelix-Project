@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const apiRoutes = require('./routes/api');
+const contactRoutes = require('./routes/contact');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -11,7 +12,6 @@ const app = express();
 
 // Load environment variables
 dotenv.config();
-
 // Connect to MongoDB
 connectDB();
 mongoose.connect(process.env.MONGO_URI)
@@ -27,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api', apiRoutes);
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user')); 
+app.use('/api/contact', contactRoutes);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '..', 'build')));
