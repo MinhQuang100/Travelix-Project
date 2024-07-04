@@ -13,7 +13,6 @@ const CTAItem = ({ title, text, rating }) => {
         }
         return stars;
     };
-
     return (
         <div className="cta_item text-center">
             <div className="cta_title">{title}</div>
@@ -28,7 +27,6 @@ const CTAItem = ({ title, text, rating }) => {
         </div>
     );
 };
-
 const CTA = () => {
     const sliderSettings = {
         dots: true,
@@ -39,25 +37,23 @@ const CTA = () => {
         prevArrow: <PrevArrow />,
         nextArrow: <NextArrow />,
     };
-
     const ctaItems = [
         {
             title: 'maldives deluxe package',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec. Proin bibendum, augue faucibus tincidunt ultrices, tortor augue gravida lectus, et efficitur enim justo vel ligula.',
+            text: 'Experience the ultimate luxury in the heart of the Maldives. Enjoy pristine beaches, exclusive overwater bungalows, and world-class diving spots. Perfect for honeymooners and families seeking a memorable escape.',
             rating: 4,
         },
         {
             title: 'maldives deluxe package',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec. Proin bibendum, augue faucibus tincidunt ultrices, tortor augue gravida lectus, et efficitur enim justo vel ligula.',
+            text: 'Dive into the crystal-clear waters of the Maldives, where adventure meets relaxation. Explore vibrant coral reefs, dine under the stars, and unwind on the soft, white sandy beaches. An unforgettable journey awaits.',
             rating: 3,
         },
         {
             title: 'maldives deluxe package',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec. Proin bibendum, augue faucibus tincidunt ultrices, tortor augue gravida lectus, et efficitur enim justo vel ligula.',
+            text: 'Discover the Maldives, a tropical paradise where dreams come to life. Indulge in spa treatments, water sports, and culinary delights in this exclusive getaway. Ideal for those looking to experience luxury at its best.',
             rating: 5,
         },
     ];
-
     return (
         <div className="cta">
             <div className="cta_background" style={{ backgroundImage: 'url(images/cta.jpg)' }}></div>
@@ -82,7 +78,6 @@ const CTA = () => {
         </div>
     );
 };
-
 const PrevArrow = (props) => {
     const { onClick } = props;
     return (

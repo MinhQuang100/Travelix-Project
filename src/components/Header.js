@@ -102,9 +102,11 @@ const Header = () => {
                   <div className="user_box_link ml-4"><a href="#" onClick={handleLogout}>Logout</a></div>
                 </div>
               ) : (
-                <>
-                  <div className="user_box_login user_box_link"><a href="#" onClick={() => { setIsLogin(true); toggleModal(); }}>login</a></div>
-                  <div className="user_box_register user_box_link"><a href="#" onClick={() => { setIsLogin(false); toggleModal(); }}>register</a></div>
+                <> 
+                  <div className="flex items-center">
+                    <div className="user_box_login user_box_link"><a href="#" onClick={() => { setIsLogin(true); toggleModal(); }}>login</a></div>
+                    <div className="user_box_register user_box_link"><a href="#" onClick={() => { setIsLogin(false); toggleModal(); }}>register</a></div>
+                  </div>
                 </>
               )}
             </div>

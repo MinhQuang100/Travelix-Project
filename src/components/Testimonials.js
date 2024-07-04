@@ -10,48 +10,48 @@ const testimonialsData = [
     icon: 'images/backpack.png',
     name: 'carla smith',
     date: 'May 24, 2017',
-    title: 'Best holiday ever',
-    text: 'Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.'
+    title: 'Adventure in the Mountains',
+    text: 'The hiking trip was breathtaking, literally and figuratively! The views from the top were spectacular, and our guide made sure we enjoyed every moment. Cant wait for the next adventure!'
   },
   {
     image: 'images/test_2.jpg',
     icon: 'images/island_t.png',
     name: 'carla smith',
     date: 'May 24, 2017',
-    title: 'Best holiday ever',
-    text: 'Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.'
+    title: 'Island Paradise Found',
+    text: 'Our island getaway was a dream come true. White sandy beaches, crystal-clear waters, and the most friendly locals. It was the perfect escape from our busy lives.'
   },
   {
     image: 'images/test_3.jpg',
     icon: 'images/kayak.png',
     name: 'carla smith',
     date: 'May 24, 2017',
-    title: 'Best holiday ever',
-    text: 'Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.'
+    title: 'Kayaking Adventure',
+    text: 'Kayaking through the serene waters was an unforgettable experience. The wildlife was incredible, and paddling through the mangroves was both peaceful and exhilarating.'
   },
   {
     image: 'images/test_2.jpg',
     icon: 'images/island_t.png',
     name: 'carla smith',
     date: 'May 24, 2017',
-    title: 'Best holiday ever',
-    text: 'Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.'
+    title: 'Sunset Sailing Experience',
+    text: 'Sailing as the sun set was magical. The colors of the sky, the calm sea, and the company made it an evening to remember. Highly recommend this experience!'
   },
   {
     image: 'images/test_1.jpg',
     icon: 'images/backpack.png',
     name: 'carla smith',
     date: 'May 24, 2017',
-    title: 'Best holiday ever',
-    text: 'Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.'
+    title: 'Mountain Retreat',
+    text: 'Our mountain retreat was everything we hoped for and more. Fresh air, stunning hikes, and cozy nights by the fire. It was the perfect way to recharge.'
   },
   {
     image: 'images/test_3.jpg',
     icon: 'images/kayak.png',
     name: 'carla smith',
     date: 'May 24, 2017',
-    title: 'Best holiday ever',
-    text: 'Nullam eu convallis tortor. Suspendisse potenti. In faucibus massa arcu, vitae cursus mi hendrerit nec.'
+    title: 'Exploring the Great Outdoors',
+    text: 'Exploring the great outdoors by kayak was an adventure of a lifetime. The guides were knowledgeable, and the landscapes were something out of a postcard.'
   }
 ];
 
@@ -107,7 +107,7 @@ const Testimonials = () => {
                     <div className="test_icon mb-4">
                       <img src={testimonial.icon} alt="" className="w-12 h-12"/>
                     </div>
-                    <div className="test_content_container rounded-full shadow-lg">
+                    <div className="test_content_container rounded-lg shadow-lg">
                       <div className="test_content">
                         <div className="test_item_info text-center mb-4">
                           <div className="test_name font-semibold">{testimonial.name}</div>

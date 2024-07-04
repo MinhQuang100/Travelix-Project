@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "autoprefixer": "^10.4.17",
+    "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
@@ -41,6 +42,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  
   "proxy": "http://localhost:5000",
   "eslintConfig": {
     "extends": [
@@ -61,11 +63,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/jquery": "^3.5.30",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "nodemon": "^3.1.0",
     "tailwindcss": "^3.4.3"
+  },
+  "nodemonConfig": {
+    "delay": "2000"
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "postcss.config.js",

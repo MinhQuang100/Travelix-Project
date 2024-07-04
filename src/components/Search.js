@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSuitcase, faBus, faPlane, faShip, faUmbrellaBeach, faSwimmer } from '@fortawesome/free-solid-svg-icons';
 
 const SearchPanel = ({ id }) => {
     return (
@@ -38,6 +40,7 @@ const SearchPanel = ({ id }) => {
         </div>
     );
 }
+
 const Search = () => {
     useEffect(() => {
         const initSearch = () => {
@@ -68,27 +71,27 @@ const Search = () => {
                         <div className="search_main_tabs_container">
                             <div className="search_main_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
                                 <div className="search_main_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/suitcase.png" alt="" />
+                                    <FontAwesomeIcon icon={faSuitcase} className="text-3xl" />
                                     <span>hotels</span>
                                 </div>
                                 <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/bus.png" alt="" />
+                                    <FontAwesomeIcon icon={faBus} className="text-3xl" />
                                     <span>car rentals</span>
                                 </div>
                                 <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/departure.png" alt="" />
+                                    <FontAwesomeIcon icon={faPlane} className="text-3xl" />
                                     <span>flights</span>
                                 </div>
                                 <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/island.png" alt="" />
+                                    <FontAwesomeIcon icon={faUmbrellaBeach} className="text-3xl" />
                                     <span>trips</span>
                                 </div>
                                 <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/cruise.png" alt="" />
+                                    <FontAwesomeIcon icon={faShip} className="text-3xl" />
                                     <span>cruises</span>
                                 </div>
                                 <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <img src="images/diving.png" alt="" />
+                                    <FontAwesomeIcon icon={faSwimmer} className="text-3xl" />
                                     <span>activities</span>
                                 </div>
                             </div>

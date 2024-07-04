@@ -5,6 +5,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const apiRoutes = require('./routes/api');
 const contactRoutes = require('./routes/contact');
+const travelPackages = require('./routes/travelPackages');
 const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -22,13 +23,13 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(express.static(path.join(__dirname, 'public')));
 // API routes
 app.use('/api', apiRoutes);
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/user', require('./routes/user')); 
 app.use('/api/contact', contactRoutes);
-
+app.use('/api/travelPackages', travelPackages);
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '..', 'build')));
 

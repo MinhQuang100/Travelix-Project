@@ -33,7 +33,6 @@ const Contact = () => {
   return (
     <div className="contact">
       <div className="contact_background" style={{ backgroundImage: 'url(images/contact.png)' }}></div>
-
       <div className="container">
         <div className="row">
           <div className="col-lg-5">
@@ -52,8 +51,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={onChange}
                   required
-                  data-error="Name is required."
-                />
+                  data-error="Name is required."/>
                 <input
                   type="email"
                   id="contact_form_email"
@@ -63,8 +61,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={onChange}
                   required
-                  data-error="Email is required."
-                />
+                  data-error="Email is required."/>
                 <input
                   type="text"
                   id="contact_form_subject"
@@ -74,8 +71,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={onChange}
                   required
-                  data-error="Subject is required."
-                />
+                  data-error="Subject is required."/>
                 <textarea
                   id="contact_form_message"
                   name="message"
@@ -85,8 +81,8 @@ const Contact = () => {
                   value={formData.message}
                   onChange={onChange}
                   required
-                  data-error="Please, write us a message."
-                ></textarea>
+                  data-error="Please, write us a message.">
+                  </textarea>
                 <button type="submit" id="form_submit_button" className="form_submit_button button">
                   send message<span></span><span></span><span></span>
                 </button>

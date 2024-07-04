@@ -1,5 +1,6 @@
+// server/models/User.js
 const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs'); // Ensure you are using bcryptjs
+const bcrypt = require('bcryptjs');
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -23,7 +24,7 @@ userSchema.pre('save', async function (next) {
   if (this.isModified('password') || this.isNew) {
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);
-    console.log(`Password hashed in middleware: ${this.password}`); // Add this log
+    console.log(`Password hashed in middleware: ${this.password}`);
   }
   next();
 });

@@ -4,20 +4,18 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Offers from './components/Offers';
 import Header from './components/Header';
+import PackageDetails from './components/PackageDetails';
 import MainPage from './components/MainPage';
 import SearchOffer from './components/SearchOffer';
 import Footer from './components/Footer';
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/offers" element={<OffersPage />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/" element={<><Header /><MainPage /><Footer /></>} />
+        <Route path="/offers" element={<><Header /><OffersPage /><Footer /></>} />
+        <Route path='/package/:id' element={<PackageDetails/>}/>
+      </Routes>
     </Router>
   );
 }

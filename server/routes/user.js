@@ -1,7 +1,7 @@
-// server/routes/user.js
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcryptjs');
 const User = require('../models/User');
 const dotenv = require('dotenv');
 
@@ -43,7 +43,8 @@ router.get('/profile', auth, async (req, res) => {
 // @desc Update user profile
 // @access Private
 router.put('/profile', auth, async (req, res) => {
-  const { username, email } = req.body;
+  const { username, currentPassword, newPassword } = req.body;
+
   try {
     let user = await User.findById(req.user.id);
 
@@ -51,11 +52,24 @@ router.put('/profile', auth, async (req, res) => {
       return res.status(404).json({ msg: 'User not found' });
     }
 
-    user.username = username || user.username;
-    user.email = email || user.email;
+    // Update username if provided
+    if (username) {
+      user.username = username;
+    }
+
+    // If currentPassword and newPassword are provided, validate and update the password
+    if (currentPassword && newPassword) {
+      // Validate current password
+      const isMatch = await bcrypt.compare(currentPassword, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ msg: 'Invalid current password' });
+      }
+
+      // Directly set the new password without hashing here
+      user.password = newPassword;
+    }
 
     await user.save();
-
     res.json(user);
   } catch (err) {
     console.error(err.message);

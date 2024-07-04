@@ -61,27 +61,25 @@ const trendingData = [
 
 const Trending = () => {
   return (
-    <div className="trending">
-      <div className="container">
-        <div className="row">
-          <div className="col text-center">
-            <h2 className="section_title">trending now</h2>
-          </div>
+    <div className="bg-gray-100 py-12">
+      <div className="container mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-gray-800">Trending Now</h2>
         </div>
-        <div className="row trending_container">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {trendingData.map((item, index) => (
-            <div className="col-lg-3 col-sm-6" key={index}>
-              <div className="trending_item clearfix">
-                <div className="trending_image">
-                  <img src={item.image} alt={item.alt} />
+            <div key={index} className="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 ease-in-out">
+              <div className="bg-cover bg-center h-56 p-4" style={{ backgroundImage: `url(${item.image})` }}>
+                <div className="flex justify-end">
+                  <span className="text-white bg-blue-500 rounded-lg px-2 py-1 text-xs font-bold">{item.price}</span>
                 </div>
-                <div className="trending_content">
-                  <div className="trending_title uppercase">
-                    <a href="#">{item.title}</a>
-                  </div>
-                  <div className="trending_price">{item.price}</div>
-                  <div className="trending_location">{item.location}</div>
-                </div>
+              </div>
+              <div className="p-4">
+                <h3 className="text-xl font-bold truncate uppercase">{item.title}</h3>
+                <p className="text-gray-700 mt-2">{item.location}</p>
+              </div>
+              <div className="p-4 border-t border-gray-200">
+                <a href="#" className="text-blue-600 hover:text-blue-500 font-semibold block text-sm">View Details</a>
               </div>
             </div>
           ))}

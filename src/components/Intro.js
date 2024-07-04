@@ -18,21 +18,21 @@ const IntroItem = ({ backgroundImage, date, destination, price, rating }) => {
     };
 
     return (
-        <div className="col-lg-4 intro_col mb-8">
+        <div className="col-lg-4 intro_col mb-8 ">
             <div className="intro_item relative bg-cover bg-center rounded-lg overflow-hidden shadow-lg" style={{ backgroundImage: `url(${backgroundImage})` }}>
                 <div className="intro_item_overlay absolute inset-0 bg-black opacity-50"></div>
                 <div className="intro_item_content flex flex-col items-center justify-center text-white text-center p-8">
                     <div className="intro_date mb-2 text-sm uppercase tracking-wider">{date}</div>
-                    <div className="button intro_button relative mb-4">
-                        <div className="button_bcg absolute inset-0 bg-yellow-500 rounded-lg transform scale-110 opacity-75"></div>
-                        <a href="#" className="relative text-white font-semibold">see more<span></span><span></span><span></span></a>
-                    </div>
                     <div className="intro_center">
-                        <h1 className="text-2xl font-bold mb-2">{destination}</h1>
-                        <div className="intro_price mb-2 text-lg font-semibold">From {price}</div>
+                        <h1 className="text-2xl font-bold mt-16">{destination}</h1>
+                        <div className="intro_price mb-12 text-lg font-semibold">From {price}</div>
                         <div className={`rating flex justify-center ${rating}`}>
                             {renderStars(rating)}
                         </div>
+                    <div className="button intro_button relative mt-4">
+                        <div className="button_bcg absolute inset-0 rounded-lg transform scale-110 opacity-75"></div>
+                        <div className="text-white uppercase font-semibold">see more<span></span><span></span><span></span></div>
+                    </div>
                     </div>
                 </div>
             </div>
