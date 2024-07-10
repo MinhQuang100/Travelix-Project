@@ -1,5 +1,4 @@
 // server/models/TravelPackage.js
-
 const mongoose = require('mongoose');
 
 const TravelPackageSchema = new mongoose.Schema({

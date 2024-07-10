@@ -31,60 +31,63 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact">
-      <div className="contact_background" style={{ backgroundImage: 'url(images/contact.png)' }}></div>
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-5">
+    <div className="contact relative py-16 bg-gray-100">
+      <div className="contact_background absolute bottom-0 left-0 w-full h-full bg-cover bg-center" style={{ backgroundImage: 'url(images/contact.png)' }}></div>
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap -mx-4">
+          <div className="w-full lg:w-5/12 px-4 mb-8 lg:mb-0">
             <div className="contact_image"></div>
           </div>
-          <div className="col-lg-7">
-            <div className="contact_form_container">
-              <div className="contact_title">get in touch</div>
-              <form onSubmit={onSubmit} id="contact_form" className="contact_form">
+          <div className="w-full lg:w-7/12 px-4">
+            <div className="contact_form_container p-8 bg-gradient-to-tr from-yellow-500 to-blue-500 rounded-lg shadow-lg relative z-10">
+              <div className="contact_title text-2xl font-bold text-white uppercase mb-4">Get in touch</div>
+              <form onSubmit={onSubmit} id="contact_form" className="contact_form space-y-4">
                 <input
                   type="text"
                   id="contact_form_name"
                   name="name"
-                  className="contact_form_name input_field"
+                  className="contact_form_name input_field w-full placeholder:text-white p-3 text-sm bg-transparent text-white border-b border-gray-300 focus:outline-none focus:border-white"
                   placeholder="Name"
                   value={formData.name}
                   onChange={onChange}
                   required
-                  data-error="Name is required."/>
+                />
                 <input
                   type="email"
                   id="contact_form_email"
                   name="email"
-                  className="contact_form_email input_field"
+                  className="contact_form_email input_field w-full placeholder:text-white p-3 text-sm bg-transparent text-white border-b border-gray-300 focus:outline-none focus:border-white"
                   placeholder="E-mail"
                   value={formData.email}
                   onChange={onChange}
                   required
-                  data-error="Email is required."/>
+                />
                 <input
                   type="text"
                   id="contact_form_subject"
                   name="subject"
-                  className="contact_form_subject input_field"
+                  className="contact_form_subject input_field w-full placeholder:text-white p-3 text-sm bg-transparent text-white border-b border-gray-300 focus:outline-none focus:border-white"
                   placeholder="Subject"
                   value={formData.subject}
                   onChange={onChange}
                   required
-                  data-error="Subject is required."/>
+                />
                 <textarea
                   id="contact_form_message"
                   name="message"
-                  className="text_field contact_form_message"
+                  className="contact_form_message input_field w-full placeholder:text-white p-3 text-sm bg-transparent text-white border-b border-gray-300 focus:outline-none focus:border-white"
                   rows="4"
                   placeholder="Message"
                   value={formData.message}
                   onChange={onChange}
                   required
-                  data-error="Please, write us a message.">
-                  </textarea>
-                <button type="submit" id="form_submit_button" className="form_submit_button button">
-                  send message<span></span><span></span><span></span>
+                ></textarea>
+                <button
+                  type="submit"
+                  id="form_submit_button"
+                  className="form_submit_button w-full py-3 text-sm font-bold text-white uppercase bg-purple-700 hover:bg-purple-800 rounded-lg transition duration-300"
+                >
+                  Send Message
                 </button>
               </form>
             </div>

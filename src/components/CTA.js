@@ -8,25 +8,27 @@ const CTAItem = ({ title, text, rating }) => {
         let stars = [];
         for (let i = 0; i < 5; i++) {
             stars.push(
-                <FontAwesomeIcon key={i} icon={faStar} className={`star p-1 ${i < rating ? 'filled' : ''}`}/>
+                <FontAwesomeIcon key={i} icon={faStar} className={`star p-1 ${i < rating ? 'filled' : ''}`} />
             );
         }
         return stars;
     };
     return (
-        <div className="cta_item text-center">
-            <div className="cta_title">{title}</div>
-            <div>
+        <div className="cta_item text-center p-10 bg-transparent rounded-lg">
+            <div className="cta_title text-2xl font-bold uppercase text-gray-800 mb-4">{title}</div>
+            <div className="flex justify-center mb-4">
                 {renderStars(rating)}
             </div>
-            <p className="cta_text">{text}</p>
-            <div className="button cta_button">
-                <div className="button_bcg"></div>
-                <a href="#">Book now<span></span><span></span><span></span></a>
+            <p className="cta_text text-gray-700 font-semibold mb-6">{text}</p>
+            <div className="cta_button">
+                <a href="#" className="inline-block bg-gradient-to-r from-yellow-400 to-purple-600 text-white font-bold py-2 px-4 rounded transition transform hover:scale-105">
+                    Book now
+                </a>
             </div>
         </div>
     );
 };
+
 const CTA = () => {
     const sliderSettings = {
         dots: true,
@@ -39,49 +41,47 @@ const CTA = () => {
     };
     const ctaItems = [
         {
-            title: 'maldives deluxe package',
+            title: 'Maldives Deluxe Package',
             text: 'Experience the ultimate luxury in the heart of the Maldives. Enjoy pristine beaches, exclusive overwater bungalows, and world-class diving spots. Perfect for honeymooners and families seeking a memorable escape.',
             rating: 4,
         },
         {
-            title: 'maldives deluxe package',
+            title: 'New Destinations for You',
             text: 'Dive into the crystal-clear waters of the Maldives, where adventure meets relaxation. Explore vibrant coral reefs, dine under the stars, and unwind on the soft, white sandy beaches. An unforgettable journey awaits.',
             rating: 3,
         },
         {
-            title: 'maldives deluxe package',
+            title: 'Travel with Us This Year',
             text: 'Discover the Maldives, a tropical paradise where dreams come to life. Indulge in spa treatments, water sports, and culinary delights in this exclusive getaway. Ideal for those looking to experience luxury at its best.',
             rating: 5,
         },
     ];
     return (
-        <div className="cta">
-            <div className="cta_background" style={{ backgroundImage: 'url(images/cta.jpg)' }}></div>
-            <div className="container">
-                <div className="row">
-                    <div className="col">
-                        <div className="cta_slider_container">
-                            <Slider {...sliderSettings}>
-                                {ctaItems.map((item, index) => (
-                                    <CTAItem
-                                        key={index}
-                                        title={item.title}
-                                        text={item.text}
-                                        rating={item.rating}
-                                    />
-                                ))}
-                            </Slider>
-                        </div>
+        <div className="bg-cover bg-center py-20 " style={{ backgroundImage: 'url(images/cta.jpg)' }}>
+            <div className="container mx-auto">
+                <div className="flex justify-center">
+                    <div className="w-full md:w-3/4 lg:w-1/2">
+                        <Slider {...sliderSettings}>
+                            {ctaItems.map((item, index) => (
+                                <CTAItem
+                                    key={index}
+                                    title={item.title}
+                                    text={item.text}
+                                    rating={item.rating}
+                                />
+                            ))}
+                        </Slider>
                     </div>
                 </div>
             </div>
         </div>
     );
 };
+
 const PrevArrow = (props) => {
     const { onClick } = props;
     return (
-        <div className='cta_slider_nav cta_slider_prev absolute top-1/2 transform -translate-y-1/2 left-4 z-10 cursor-pointer' onClick={onClick}>
+        <div className='cta_slider_nav absolute top-1/2 transform -translate-y-1/2 left-0 z-10 cursor-pointer' onClick={onClick}>
             <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="28px" height="33px" viewBox="0 0 28 33" enableBackground="new 0 0 28 33" xmlSpace="preserve">
                 <defs>
@@ -103,7 +103,7 @@ const PrevArrow = (props) => {
 const NextArrow = (props) => {
     const { onClick } = props;
     return (
-        <div className="cta_slider_nav cta_slider_next absolute top-1/2 transform -translate-y-1/2 right-4 z-10 cursor-pointer" onClick={onClick}>
+        <div className="cta_slider_nav absolute top-1/2 transform -translate-y-1/2 right-0 z-10 cursor-pointer" onClick={onClick}>
             <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 width="28px" height="33px" viewBox="0 0 28 33" enableBackground="new 0 0 28 33" xmlSpace="preserve">
                 <defs>

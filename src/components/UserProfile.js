@@ -77,13 +77,13 @@ const UserProfile = ({ closeProfile }) => {
     <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 z-50">
       <div className="bg-[#77aaff] p-8 rounded shadow-md w-full max-w-md">
         <button onClick={closeProfile} className="text-gray-600 hover:text-gray-900 absolute top-4 right-4">&times;</button>
-        <h2 className="text-2xl font-bold text-[#fa9e1b] mb-6">
+        <h2 className="text-2xl font-bold text-white mb-6">
           {isUsernameForm ? 'Update Username' : 'Change Password'}
         </h2>
         <form onSubmit={onSubmit}>
           {isUsernameForm ? (
             <div className="mb-4">
-              <label className="block text-[#fa9e1b] mb-2">Username</label>
+              <label className="block text-white mb-2">Username</label>
               <input
                 type="text" name="username" value={formData.username}
                 onChange={onChange} className="w-full px-3 py-2 border rounded" required/>
@@ -91,21 +91,21 @@ const UserProfile = ({ closeProfile }) => {
           ) : (
             <>
               <div className="mb-4">
-                <label className="block text-[#fa9e1b] mb-2">Current Password</label>
+                <label className="block text-white mb-2">Current Password</label>
                 <input
                   type="password" name="currentPassword" value={formData.currentPassword}
                   onChange={onChange} className="w-full px-3 py-2 border rounded" required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-[#fa9e1b] mb-2">New Password</label>
+                <label className="block text-white mb-2">New Password</label>
                 <input
                   type="password" name="newPassword" value={formData.newPassword}
                   onChange={onChange} className="w-full px-3 py-2 border rounded" required
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-[#fa9e1b] mb-2">Confirm New Password</label>
+                <label className="block text-white mb-2">Confirm New Password</label>
                 <input
                   type="password" name="confirmNewPassword" value={formData.confirmNewPassword}
                   onChange={onChange} className="w-full px-3 py-2 border rounded" required

@@ -4,38 +4,38 @@ import { faSuitcase, faBus, faPlane, faShip, faUmbrellaBeach, faSwimmer } from '
 
 const SearchPanel = ({ id }) => {
     return (
-        <div className="search_main_panel">
-            <form id={`search_main_form_${id}`} className="search_main_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                <div className="search_main_item">
-                    <div>destination</div>
-                    <input type="text" className="destination search_main_input" required={true} />
+        <div className={`search_main_panel ${id === 1 ? 'block' : 'hidden'}`}>
+            <form id={`search_main_form_${id}`} className="search_main_panel_content flex flex-col lg:flex-row items-start lg:items-center justify-between space-y-4 lg:space-y-0 w-full">
+                <div className="search_main_item flex-1 lg:flex-none w-full lg:w-auto">
+                    <label className="block text-white text-sm font-bold mb-2">Destination</label>
+                    <input type="text" className="w-full h-12 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" required />
                 </div>
-                <div className="search_main_item">
-                    <div>check in</div>
-                    <input type="text" className="check_in search_main_input" placeholder="YYYY-MM-DD" />
+                <div className="search_main_item flex-1 lg:flex-none w-full lg:w-auto">
+                    <label className="block text-white text-sm font-bold mb-2">Check In</label>
+                    <input type="text" className="w-full h-12 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="YYYY-MM-DD" />
                 </div>
-                <div className="search_main_item">
-                    <div>check out</div>
-                    <input type="text" className="check_out search_main_input" placeholder="YYYY-MM-DD" />
+                <div className="search_main_item flex-1 lg:flex-none w-full lg:w-auto">
+                    <label className="block text-white text-sm font-bold mb-2">Check Out</label>
+                    <input type="text" className="w-full h-12 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="YYYY-MM-DD" />
                 </div>
-                <div className="search_main_item">
-                    <div>adults</div>
-                    <select name="adults" id={`adults_${id}`} className="dropdown_item_select search_main_input">
+                <div className="search_main_item flex-1 lg:flex-none w-full lg:w-auto">
+                    <label className="block text-white text-sm font-bold mb-2">Adults</label>
+                    <select name="adults" id={`adults_${id}`} className="dropdown_item_select w-full h-12 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
                         <option>01</option>
                         <option>02</option>
                         <option>03</option>
                     </select>
                 </div>
-                <div className="search_main_item">
-                    <div>children</div>
-                    <select name="children" id={`children_${id}`} className="dropdown_item_select search_main_input">
+                <div className="search_main_item flex-1 lg:flex-none w-full lg:w-auto">
+                    <label className="block text-white text-sm font-bold mb-2">Children</label>
+                    <select name="children" id={`children_${id}`} className="dropdown_item_select w-full h-12 px-4 py-2 border border-blue-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
                         <option>0</option>
                         <option>01</option>
                         <option>02</option>
                         <option>03</option>
                     </select>
                 </div>
-                <button className="button search_main_button">search<span></span><span></span><span></span></button>
+                <button className="bg-purple-700 text-white mt-4 uppercase font-bold py-3 px-6 rounded-md shadow-md hover:bg-purple-800 transition-transform transform-gpu active:scale-95">Search</button>
             </form>
         </div>
     );
@@ -51,11 +51,11 @@ const Search = () => {
                     searchTabs.forEach(tab => tab.classList.remove('active'));
                     // Add active class to the clicked tab
                     tab.classList.add('active');
-                    // Remove active class from all search panels
+                    // Hide all search panels
                     const searchPanels = document.querySelectorAll('.search_main_panel');
-                    searchPanels.forEach(panel => panel.classList.remove('active'));
-                    // Add active class to the corresponding search panel
-                    searchPanels[index].classList.add('active');
+                    searchPanels.forEach(panel => panel.classList.add('hidden'));
+                    // Show the corresponding search panel
+                    searchPanels[index].classList.remove('hidden');
                 });
             });
         };
@@ -63,36 +63,37 @@ const Search = () => {
         // Set the first search panel as active on initial load
         document.querySelector('.search_main_tab').click();
     }, []);
+
     return (
-        <div id="search_main" className="search_main">
-            <div className="container fill_height">
-                <div className="row fill_height">
-                    <div className="col fill_height">
-                        <div className="search_main_tabs_container">
-                            <div className="search_main_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                                <div className="search_main_tab active d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <FontAwesomeIcon icon={faSuitcase} className="text-3xl" />
-                                    <span>hotels</span>
+        <div id="search_main" className="search_main bg-gradient-to-r from-blue-500 to-blue-300 py-6">
+            <div className="container mx-auto h-full">
+                <div className="row h-full flex items-center">
+                    <div className="col w-full">
+                        <div className="search_main_tabs_container relative">
+                            <div className="search_main_tabs flex flex-col lg:flex-row justify-between items-center bg-white shadow-lg rounded-lg overflow-hidden my-8">
+                                <div className="search_main_tab active flex flex-col lg:flex-row items-center justify-center w-full lg:w-auto p-4 cursor-pointer hover:bg-blue-400 transition-colors duration-300">
+                                    <FontAwesomeIcon icon={faSuitcase} className="text-xl lg:text-3xl mb-2 lg:mb-0 lg:mr-2" />
+                                    <span>Hotels</span>
                                 </div>
-                                <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <FontAwesomeIcon icon={faBus} className="text-3xl" />
-                                    <span>car rentals</span>
+                                <div className="search_main_tab flex flex-col lg:flex-row items-center justify-center w-full lg:w-auto p-4 cursor-pointer ho ver:bg-blue-400 transition-colors duration-300">
+                                    <FontAwesomeIcon icon={faBus} className="text-xl lg:text-3xl mb-2 lg:mb-0 lg:mr-2" />
+                                    <span>Car Rentals</span>
                                 </div>
-                                <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <FontAwesomeIcon icon={faPlane} className="text-3xl" />
-                                    <span>flights</span>
+                                <div className="search_main_tab flex flex-col lg:flex-row items-center justify-center w-full lg:w-auto p-4 cursor-pointer hover:bg-blue-400 transition-colors duration-300">
+                                    <FontAwesomeIcon icon={faPlane} className="text-xl lg:text-3xl mb-2 lg:mb-0 lg:mr-2" />
+                                    <span>Flights</span>
                                 </div>
-                                <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <FontAwesomeIcon icon={faUmbrellaBeach} className="text-3xl" />
-                                    <span>trips</span>
+                                <div className="search_main_tab flex flex-col lg:flex-row items-center justify-center w-full lg:w-auto p-4 cursor-pointer hover:bg-blue-400 transition-colors duration-300">
+                                    <FontAwesomeIcon icon={faUmbrellaBeach} className="text-xl lg:text-3xl mb-2 lg:mb-0 lg:mr-2" />
+                                    <span>Trips</span>
                                 </div>
-                                <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <FontAwesomeIcon icon={faShip} className="text-3xl" />
-                                    <span>cruises</span>
+                                <div className="search_main_tab flex flex-col lg:flex-row items-center justify-center w-full lg:w-auto p-4 cursor-pointer hover:bg-blue-400 transition-colors duration-300">
+                                    <FontAwesomeIcon icon={faShip} className="text-xl lg:text-3xl mb-2 lg:mb-0 lg:mr-2" />
+                                    <span>Cruises</span>
                                 </div>
-                                <div className="search_main_tab d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-                                    <FontAwesomeIcon icon={faSwimmer} className="text-3xl" />
-                                    <span>activities</span>
+                                <div className="search_main_tab flex flex-col lg:flex-row items-center justify-center w-full lg:w-auto p-4 cursor-pointer hover:bg-blue-400 transition-colors duration-300">
+                                    <FontAwesomeIcon icon={faSwimmer} className="text-xl lg:text-3xl mb-2 lg:mb-0 lg:mr-2" />
+                                    <span>Activities</span>
                                 </div>
                             </div>
                         </div>

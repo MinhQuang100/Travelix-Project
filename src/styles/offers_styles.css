@@ -281,10 +281,10 @@
 	font-weight: 700;
 	color: #fff;
 	text-transform: uppercase;
-	line-height: 53px;
+	line-height: 50px;
 	padding-left: 46px;
 	padding-right: 46px;
-	background: #31124b;
+	background: rgb(107 33 168);
 	-webkit-transform: translateY(15px);
 	-moz-transform: translateY(15px);
 	-ms-transform: translateY(15px);
@@ -293,7 +293,6 @@
 	border: none;
 	outline: none;
 	cursor: pointer;
-	margin-top: 40px;
 }
 .search_button:hover
 {
@@ -492,10 +491,6 @@
 	padding-right: 14px;
 	margin-right: 16px;
 }
-.distance_item
-{
-	width: 234px !important;
-}
 .offers_sorting li i
 {
 	float: right;
@@ -564,21 +559,6 @@
 /*********************************
 9.2 Offers Grid
 *********************************/
-
-.offers_grid
-{
-	width: 100%;
-	margin-top: 66px;
-}
-.offers_item
-{
-	width: 100%;
-	margin-bottom: 46px;
-}
-.offers_item:last-child
-{
-	margin-bottom: 0px;
-}
 .offers_image img
 {
 	width: 100%;
@@ -675,48 +655,4 @@
 .book_button:hover
 {
 	opacity: 0.8;
-}
-.offer_reviews
-{
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-.offer_reviews_content
-{
-	display: inline-block;
-	vertical-align: middle;
-	margin-right: 7px;
-}
-.offer_reviews_title
-{
-	font-size: 12px;
-	font-weight: 700;
-	color: #2d2c2c;
-	text-transform: uppercase;
-}
-.offer_reviews_subtitle
-{
-	font-size: 12px;
-	font-weight: 600;
-	color: #929191;
-	margin-top: 1px;
-}
-.offer_reviews_rating
-{
-	display: inline-block;
-	width: 62px;
-	height: 57px;
-	font-size: 28px;
-	font-weight: 700;
-	color: #FFFFFF;
-	line-height: 57px;
-	background: #77aaff;
-	vertical-align: middle;
-	border-radius: 45%;
-	-webkit-transform: translateY(-4px);
-	-moz-transform: translateY(-4px);
-	-ms-transform: translateY(-4px);
-	-o-transform: translateY(-4px);
-	transform: translateY(-4px);
 }

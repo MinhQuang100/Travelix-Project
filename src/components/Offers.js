@@ -17,42 +17,38 @@ const OfferItem = ({ id, image, name, price, rating, text, icons, reviews }) => 
         }
         return stars;
     };
+    const ratingClass = `rating_${rating}`;
     return (
-        <div className={`offers_item rating_${rating} bg-white shadow-lg rounded-lg overflow-hidden mb-8`}>
-            <div className="row flex flex-wrap p-6">
-                <div className="col-lg-1 temp_col hidden lg:block"></div>
-                <div className="col-lg-3 col-1680-4 w-full lg:w-1/4 mb-4 lg:mb-0">
-                    <div className="offers_image_container relative">
-                        <div className="offers_image_background h-64 bg-center bg-cover" style={{ backgroundImage: `url(${image})` }}></div>
-                        <div className="offer_name absolute bottom-0 left-0 bg-black bg-opacity-50 text-white">
-                            <Link to={`/package/${id}`} className="text-lg font-bold">{name}</Link>
-                        </div>
+        <div className={`offers_item bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 shadow-2xl rounded-xl overflow-hidden mb-8 hover:scale-105 hover:shadow-lg ${ratingClass}`}>
+            <div className="flex flex-col gap-x-20 md:flex-row p-6">
+                <div className="w-full md:w-1/3 mb-4 md:mb-0 relative">
+                    <div className="h-64 bg-center bg-cover rounded-lg shadow-md" style={{ backgroundImage: `url(${image})` }}></div>
+                    <div className="absolute bottom-0 left-0 bg-black bg-opacity-70 text-white py-2 px-4 rounded-tr-lg">
+                        <Link to={`/package/${id}`} className="text-lg uppercase font-semibold">{name}</Link>
                     </div>
                 </div>
-                <div className="col-lg-8 w-full lg:w-3/4">
-                    <div className="offers_content p-4">
-                        <div className="offers_price text-2xl font-bold mb-2">${price}<span className="text-sm font-normal"> per night</span></div>
-                        <div className={`rating_r rating_r_${rating} offers_rating mb-4`} data-rating={rating}>
+                <div className="w-full md:w-2/3 flex flex-col justify-between">
+                    <div>
+                        <div className="offers_price text-4xl font-extrabold text-white mb-2">${price}<span className="text-xl font-normal ml-2">per night</span></div>
+                        <div className={`rating_r rating_r_${rating} offers_rating mb-4 flex items-center`} data-rating={rating}>
                             {renderStars(rating)}
                         </div>
-                        <p className="offers_text mb-4">{text}</p>
-                        <div className="offers_icons mb-4">
-                            <ul className="offers_icons_list flex flex-wrap space-x-2">
-                                {icons.map((icon, index) => (
-                                    <li className="offers_icons_item" key={index}><img src={icon} alt="" className="w-8 h-8" /></li>
-                                ))}
-                            </ul>
+                        <p className="text-white mb-4">{text}</p>
+                        <div className="flex space-x-2 mb-4">
+                            {icons.map((icon, index) => (
+                                <img key={index} src={icon} alt="" className="w-10 h-10" />
+                            ))}
                         </div>
-                        <div className="button book_button inline-block bg-blue-600 text-whiterounded">
-                            <Link to={`/package/${id}`} className="relative inline-block">book<span></span><span></span><span></span></Link>
+                        <div className="inline-block bg-blue-500 text-lg font-semibold rounded-full py-2 px-6 transition duration-300 hover:bg-blue-700">
+                            <Link to={`/package/${id}`} className='text-white'>Book Now</Link>
                         </div>
-                        <div className="offer_reviews mt-4">
-                            <div className="offer_reviews_content flex justify-between items-center">
-                                <div className="offer_reviews_title font-bold text-lg">{reviews.title}</div>
-                                <div className="offer_reviews_subtitle text-gray-600">{reviews.subtitle}</div>
-                            </div>
-                            <div className="offer_reviews_rating text-center text-lg font-semibold mt-2">{reviews.rating}</div>
+                    </div>
+                    <div className="mt-4">
+                        <div className="flex justify-between items-center">
+                            <div className="font-bold text-xl text-white uppercase">{reviews.title}</div>
+                            <div className="text-gray-200 uppercase">{reviews.subtitle}</div>
                         </div>
+                        <div className="text-center text-2xl font-semibold mt-2 text-white">{reviews.rating}</div>
                     </div>
                 </div>
             </div>
@@ -146,7 +142,6 @@ const Offers = () => {
         return (
             <div>
                 <div className='text-center text-3xl'>Error: {error}</div>
-                <button onClick={fetchOffers}>Retry</button>
             </div>
         );
     }

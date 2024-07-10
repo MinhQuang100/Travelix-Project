@@ -8,30 +8,28 @@ const Home = () => {
     "url(images/home_slider.jpg)"
   ];
 
-  // State to hold the selected image URL
   const [backgroundImage, setBackgroundImage] = useState('');
 
-  // Function to select a random image
   const selectRandomImage = () => {
     const randomIndex = Math.floor(Math.random() * images.length);
     return images[randomIndex];
   };
 
-  // UseEffect to set a random image on component mount
   useEffect(() => {
     setBackgroundImage(selectRandomImage());
   }, []);
 
   return (
-    <div className="home">
-      <div className="home_slider_container">
-        <div className="home_slider">
-          <div className='home_slider_item'>
-            <div className="home_slider_background" style={{backgroundImage: backgroundImage}}></div>
-            <div className="home_slider_content text-center">
-              <div className="home_slider_content_inner" data-animation-in="flipInX" data-animation-out="animate-out fadeOut">
-                <h1>Travel Around</h1>
-                <h1>the world</h1>
+    <div className="w-full h-screen relative bg-blue-800">
+      <div className="absolute inset-0 w-full h-full z-10">
+        <div className="w-full h-full">
+          <div className="w-full h-full">
+            <div className="absolute inset-0 bg-cover bg-center opacity-75" style={{ backgroundImage: backgroundImage }}></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+              <div className="flex flex-col md:flex-row items-center gap-x-4 gap-y-4">
+                <h1 className="font-beyond text-5xl md:text-6xl">Travel Around</h1>
+                <img className="w-2/5 sm:w-1/4 h-auto mx-auto" src="/images/logo.png" alt="Logo"/>
+                <h1 className="font-beyond text-5xl md:text-6xl">The World</h1>
               </div>
             </div>
           </div>

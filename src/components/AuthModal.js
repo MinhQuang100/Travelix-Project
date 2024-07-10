@@ -21,15 +21,14 @@ const AuthModal = ({ isLogin, toggleModal, switchMode }) => {
 
       if (response.ok) {
         setMessage(isLogin ? 'Login successful' : 'Registration successful');
-        if (isLogin) {
-          localStorage.setItem('token', data.token);
-          localStorage.setItem('username', data.username); // Store the username correctly
-        }
+        localStorage.setItem('token', data.token); // Ensure token is stored here
+        localStorage.setItem('username', data.username || username); // Store the username correctly
         toggleModal();
         window.location.reload(); // Reload the page to reflect the changes
       } else {
         setMessage(data.msg || (isLogin ? 'Login failed' : 'Registration failed'));
       }
+      
     } catch (error) {
       console.error('Error during fetch:', error);
       setMessage('An error occurred');
@@ -39,37 +38,37 @@ const AuthModal = ({ isLogin, toggleModal, switchMode }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-800 bg-opacity-75">
       <div className="bg-[#77aaff] p-8 rounded-lg shadow-lg max-w-md w-full">
-        <h2 className="text-2xl text-[#fa9e1b] mb-4">{isLogin ? 'Login' : 'Register'}</h2>
+        <h2 className="text-2xl text-white mb-4">{isLogin ? 'Login' : 'Register'}</h2>
         <form onSubmit={e => e.preventDefault()}>
           {!isLogin && (
             <div className="mb-4">
-              <label className="block text-[#fa9e1b] text-sm font-bold mb-2" htmlFor="name">
+              <label className="block text-white text-sm font-bold mb-2" htmlFor="name">
                 Name
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-[#fa9e1b] leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-600 leading-tight focus:outline-none focus:shadow-outline"
                 id="name" type="text" placeholder="Name"
                 value={username} onChange={e => setUsername(e.target.value)}
               />
             </div>
           )}
           <div className="mb-4">
-            <label className="block text-[#fa9e1b] text-sm font-bold mb-2" htmlFor="email">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="email">
               Email
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-[#fa9e1b] leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-600 leading-tight focus:outline-none focus:shadow-outline"
               id="email" type="email"
               placeholder="Email" 
               value={email} onChange={e => setEmail(e.target.value)}
             />
           </div>
           <div className="mb-6">
-            <label className="block text-[#fa9e1b] text-sm font-bold mb-2" htmlFor="password">
+            <label className="block text-white text-sm font-bold mb-2" htmlFor="password">
               Password
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-[#fa9e1b] mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-blue-600 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password" type="password"
               placeholder="******************" 
               value={password} onChange={e => setPassword(e.target.value)}
@@ -78,7 +77,7 @@ const AuthModal = ({ isLogin, toggleModal, switchMode }) => {
           {message && <p className="text-red-500 text-xs italic">{message}</p>}
           <div className="flex items-center justify-between">
             <button
-              className="bg-[#5599ff] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-[#5599ff] hover:bg-blue-700 text-blue-600 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button" onClick={handleSubmit}>
               {isLogin ? 'Sign In' : 'Register'}
             </button>

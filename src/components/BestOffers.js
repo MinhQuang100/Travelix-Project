@@ -1,5 +1,6 @@
 // BestOffers.js
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEnvelope, faCompass, faBicycle, faShip } from '@fortawesome/free-solid-svg-icons';
 
@@ -25,20 +26,13 @@ const OfferItem = ({ image, name, price, rating, text, icons }) => {
                                 {renderStars(rating)}
                             </div>
                             <p className="offers_text text-gray-700">{text}</p>
-                            <div className="offers_link mt-4"><a href="#" className="text-purple-500 hover:underline">read more</a></div>
+                            <div className="mt-4"><Link to="/offers" className="p-2 rounded-full text-white font-bold bg-gradient-to-r from-yellow-400 to-purple-600 uppercase">Read More</Link></div>
                         </div>
                     </div>
                     <div className="col-lg-6">
                         <div className="offers_image_container relative">
                             <div className="offers_image_background bg-cover bg-center" style={{ backgroundImage: `url(${image})` }}></div>
                             <div className="offer_name absolute bottom-0 left-0 bg-gradient-to-r from-yellow-500 to-purple-500 text-white"><a href="#">{name}</a></div>
-                        </div>
-                        <div className="offers_icons mt-4">
-                            <ul className="offers_icons_list flex justify-center space-x-3">
-                                {icons.map((icon, index) => (
-                                    <li className="offers_icons_item" key={index}><img src={icon} alt="" className="w-6 h-6"/></li>
-                                ))}
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -88,7 +82,7 @@ const BestOffers = () => {
             <div className="container mx-auto px-3">
                 <div className="row">
                     <div className="col text-center mb-12">
-                        <h2 className="section_title text-4xl font-bold text-gray-800">the best offers with rooms</h2>
+                        <h2 className="section_title text-4xl font-bold text-gray-800 uppercase">the best offers with rooms</h2>
                     </div>
                 </div>
                 <div className="row offers_items flex flex-wrap">
@@ -100,7 +94,6 @@ const BestOffers = () => {
                             price={offer.price}
                             rating={offer.rating}
                             text={offer.text}
-                            icons={offer.icons}
                         />
                     ))}
                 </div>

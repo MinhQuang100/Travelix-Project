@@ -1,3 +1,4 @@
+// server/routes/user.js
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
@@ -77,4 +78,4 @@ router.put('/profile', auth, async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = { router, auth }; // Export both the router and the auth middleware

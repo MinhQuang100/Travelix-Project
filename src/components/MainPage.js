@@ -8,8 +8,6 @@ import Testimonials from './Testimonials';
 import Trending from './Trending';
 import Contact from './Contact';
 import '../styles/main_styles.css';
-import '../styles/responsive.css';
-import '../styles/bootstrap4/bootstrap.min.css';
 const MainPage = () => {
   return (
     <div>
